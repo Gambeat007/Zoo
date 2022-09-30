@@ -31,7 +31,7 @@ public class AreaController {
         }
     }
 
-    @GetMapping("/areas/least-populated-area")
+    @GetMapping("/areas/least-populated")
     public ResponseEntity<Area> getLeastPopulatedArea() {
         try {
             return new ResponseEntity<>(areaRepository.findAllAreas()
