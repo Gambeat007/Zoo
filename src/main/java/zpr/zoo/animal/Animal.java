@@ -1,6 +1,7 @@
-package zpr.zoo.model;
+package zpr.zoo.animal;
 
 import lombok.*;
+import zpr.zoo.model.ZooBase;
 
 import javax.persistence.*;
 

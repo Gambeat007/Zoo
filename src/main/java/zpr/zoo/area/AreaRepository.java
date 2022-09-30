@@ -1,7 +1,6 @@
 package zpr.zoo.area;
 
 import org.springframework.data.jpa.repository.*;
-import zpr.zoo.model.Area;
 
 import java.util.List;
 

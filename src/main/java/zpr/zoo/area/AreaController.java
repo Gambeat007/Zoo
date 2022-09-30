@@ -3,12 +3,11 @@ package zpr.zoo.area;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import zpr.zoo.model.Area;
 
 import java.util.*;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/zoo")
 @RequiredArgsConstructor
 public class AreaController {
     private final AreaRepository areaRepository;
@@ -22,7 +21,7 @@ public class AreaController {
         }
     }
 
-    @GetMapping("/areas/id")
+    @GetMapping("/areas/{areaId}")
     public ResponseEntity<Area> getAllAnimalsFromArea(long area_id) {
         try {
             Area area = areaRepository.findAllAnimalsFromArea(area_id);
@@ -32,7 +31,7 @@ public class AreaController {
         }
     }
 
-    @GetMapping("/areas/leastPopulated")
+    @GetMapping("/areas/least-populated-area")
     public ResponseEntity<Area> getLeastPopulatedArea() {
         try {
             return new ResponseEntity<>(areaRepository.findAllAreas()
@@ -45,7 +44,7 @@ public class AreaController {
         }
     }
 
-    @GetMapping("/areas/greatestFoodConsumption")
+    @GetMapping("/areas/greatest-food-consumption")
     public ResponseEntity<Area> getAreaOfGreatestFoodConsumption() {
         try {
             return new ResponseEntity<>(areaRepository.findAllAreas()

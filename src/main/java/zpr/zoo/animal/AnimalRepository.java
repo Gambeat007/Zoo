@@ -1,7 +1,6 @@
 package zpr.zoo.animal;
 
 import org.springframework.data.jpa.repository.*;
-import zpr.zoo.model.Animal;
 
 import java.util.List;
 
