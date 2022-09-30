@@ -1,8 +1,10 @@
 package zpr.zoo.area;
 
 import lombok.*;
+import zpr.zoo.animal.Animal;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Setter
@@ -16,6 +18,10 @@ public class Area {
     private Long id;
     @Column(name = "name")
     private String name;
+
+    @OneToMany
+    @JoinColumn(name="area_id")
+    private List<Animal> animals;
 
     public Area() {
     }

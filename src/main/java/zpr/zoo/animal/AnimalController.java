@@ -6,10 +6,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequiredArgsConstructor
-
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class AnimalController {
     private final AnimalRepository animalRepository;
 
@@ -35,14 +34,13 @@ public class AnimalController {
         }
     }
 
-    @PostMapping("/animals/add")
-    public ResponseEntity<Animal> addAnimal (@RequestBody Animal animal) {
-        try {
-            Animal _animal = animalRepository.save(new Animal(animal.getName(),
-                    animal.getKind(), animal.getFood(), animal.getAreaId()));
-            return new ResponseEntity<>(_animal, HttpStatus.CREATED);
-        } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
+//    @PostMapping("/animals/add")
+//    public ResponseEntity<Animal> addAnimal (@RequestBody Animal animal) {
+//        try {
+//            Animal _animal = animalRepository.save(new Animal(animal.getName(), animal.getKind(), animal.getFood(), animal.getAreaId()));
+//            return new ResponseEntity<>(_animal, HttpStatus.CREATED);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 }

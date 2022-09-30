@@ -3,17 +3,13 @@ package zpr.zoo.area;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
-import zpr.zoo.animal.Animal;
 
 import java.util.List;
-import java.util.Optional;
-
-@RequiredArgsConstructor
 
 @RestController
 @RequestMapping("/api")
+@RequiredArgsConstructor
 public class AreaController {
-
     private final AreaRepository areaRepository;
 
     @GetMapping("/areas")
@@ -25,26 +21,23 @@ public class AreaController {
         }
     }
 
-//    @GetMapping("/areas/id")
-//    public ResponseEntity<Optional<Area>> getAllAnimalsInArea (Long id) {
-//        try {
-//            Optional<Area> area = areaRepository.findById(id);
-////            if (area.isEmpty()) {
-////                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-////            }
-//            return new ResponseEntity<>(area, HttpStatus.OK);
-//        } catch (Exception e) {
-//            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-//        }
-//    }
-
-    @PostMapping("/areas/add")
-    public ResponseEntity<Area> addArea (@RequestBody Area area) {
+    @GetMapping("/areas/id")
+    public ResponseEntity<Area> getAllAnimalsFromArea(long area_id) {
         try {
-            Area _area = areaRepository.save(new Area(area.getName()));
-            return new ResponseEntity<>(_area, HttpStatus.CREATED);
+            Area area = areaRepository.findAllAnimalsFromArea(area_id);
+            return new ResponseEntity<>(area, HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+//    @PostMapping("/areas/add")
+//    public ResponseEntity<Area> addArea (@RequestBody Area area) {
+//        try {
+//            Area _area = areaRepository.save(new Area(area.getName()));
+//            return new ResponseEntity<>(_area, HttpStatus.CREATED);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+//        }
+//    }
 }
