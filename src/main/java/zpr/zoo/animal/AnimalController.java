@@ -3,6 +3,7 @@ package zpr.zoo.animal;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.*;
 import org.springframework.web.bind.annotation.*;
+import zpr.zoo.model.Animal;
 
 import java.util.List;
 

@@ -1,11 +1,9 @@
-package zpr.zoo.area;
+package zpr.zoo.model;
 
 import lombok.*;
-import zpr.zoo.animal.Animal;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Getter
 @Setter
@@ -13,10 +11,7 @@ import java.util.List;
 
 @Entity
 @Table(name = "area")
-public class Area {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
+public class Area extends ZooBase {
     @Column(name = "name")
     private String name;
 

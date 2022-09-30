@@ -1,4 +1,4 @@
-package zpr.zoo.animal;
+package zpr.zoo.model;
 
 import lombok.*;
 
@@ -10,10 +10,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "animal")
-public class Animal {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+public class Animal extends ZooBase {
     @Column(name = "name")
     private String name;
     @Column(name = "kind")

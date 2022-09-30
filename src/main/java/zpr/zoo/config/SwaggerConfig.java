@@ -1,19 +1,23 @@
 package zpr.zoo.config;
 
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.*;
 import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+
+/*
+SwaggerUI url:
+http://localhost:8080/swagger-ui/index.html
+ */
 
 @Configuration
 public class SwaggerConfig {
 
     @Bean
     public Docket swaggerApi() {
-        return new Docket(DocumentationType. SWAGGER_2 )
+        return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .paths(PathSelectors. regex ( "^(?!/(error).*$).*$" ))
+                .paths(PathSelectors. regex("^(?!/(error).*$).*$" ))
                 .build();
     }
 }
