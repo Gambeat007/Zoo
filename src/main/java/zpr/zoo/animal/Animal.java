@@ -26,7 +26,7 @@ public class Animal {
     public Animal() {
     }
 
-    public Animal(String name, String kind, int food, long id) {
+    public Animal(String name, String kind, int food, long areaId) {
         this.name = name;
         this.kind = kind;
         this.food = food;
